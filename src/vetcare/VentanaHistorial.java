@@ -63,12 +63,14 @@ public class VentanaHistorial extends JDialog {
         form.add(Box.createVerticalStrut(6));
         JButton btnGuardar = Tema.crearBoton("Guardar registro",   new Color(150, 50, 200));
         JButton btnFiltrar = Tema.crearBoton("Filtrar por mascota", new Color(70, 130, 180));
+        JButton btnEliminar = Tema.crearBoton("Eliminar registro",  Tema.DANGER);
         JButton btnTodos   = Tema.crearBoton("Ver todos",           new Color(50, 50, 80));
-        for (JButton b : new JButton[]{btnGuardar, btnFiltrar, btnTodos})
+        for (JButton b : new JButton[]{btnGuardar, btnFiltrar, btnTodos, btnEliminar})
             b.setMaximumSize(new Dimension(Integer.MAX_VALUE, 36));
         form.add(btnGuardar); form.add(Box.createVerticalStrut(8));
         form.add(btnFiltrar); form.add(Box.createVerticalStrut(8));
-        form.add(btnTodos);
+        form.add(btnTodos);   form.add(Box.createVerticalStrut(8));
+        form.add(btnEliminar);
 
         JPanel panelTabla = new JPanel(new BorderLayout(0, 8));
         panelTabla.setBackground(Tema.BG_DARK);
@@ -102,6 +104,7 @@ public class VentanaHistorial extends JDialog {
         btnGuardar.addActionListener(e -> guardarRegistro());
         btnFiltrar.addActionListener(e -> filtrarPorMascota());
         btnTodos.addActionListener(e -> { cargarTabla(); tabla.clearSelection(); });
+        btnEliminar.addActionListener(e -> eliminarRegistro());
     }
 
     private void agregarCampo(JPanel form, String label, JTextField campo) {
@@ -164,5 +167,21 @@ public class VentanaHistorial extends JDialog {
     private void limpiarFormulario() {
         txtFecha.setText(""); txtDiagnostico.setText(""); txtTratamiento.setText(""); txtObservaciones.setText("");
         cargarComboMascotas(); tabla.clearSelection();
+    }
+
+    private void eliminarRegistro() {
+    int fila = tabla.getSelectedRow();
+    if (fila < 0) {
+        JOptionPane.showMessageDialog(this, "Seleccione un registro.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+    String id = (String) modeloTabla.getValueAt(fila, 0);
+    int confirm = JOptionPane.showConfirmDialog(this, "¿Eliminar registro " + id + "?", "Confirmar", JOptionPane.YES_NO_OPTION);
+    if (confirm == JOptionPane.YES_OPTION) {
+        datos.getHistoriales().removeIf(h -> h.getIdRegistro().equals(id));
+        GestorArchivos.guardarHistorial(datos.getHistoriales());
+        cargarTabla();
+        limpiarFormulario();
+        }
     }
 }

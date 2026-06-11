@@ -1,0 +1,101 @@
+
+MANUAL DE USUARIO
+VetCare – Clínica Veterinaria Huellitas
+
+1. INTRODUCCIÓN
+
+VetCare es una aplicación de escritorio desarrollada en Java para la gestión de una clínica veterinaria. Su objetivo es facilitar el registro de clientes, mascotas, citas médicas e historiales clínicos, permitiendo organizar la información de manera rápida y segura.
+
+La información registrada se almacena automáticamente en archivos CSV dentro de la carpeta data, garantizando la conservación de los datos entre sesiones.
+
+--------------------------------------------------
+
+2. REQUISITOS DEL SISTEMA
+
+Para ejecutar la aplicación es necesario contar con Java 8 o una versión superior instalada en el equipo. Además, se requiere disponer del archivo ejecutable VetCare.jar o de los archivos compilados del proyecto.
+
+--------------------------------------------------
+
+3. INSTALACIÓN Y EJECUCIÓN
+
+Para iniciar la aplicación mediante el archivo ejecutable, abra una terminal y ejecute:
+
+java -jar VetCare.jar
+
+Si se dispone del proyecto compilado, puede ejecutarse mediante:
+
+java vetcare.Main
+
+Una vez iniciado el programa, se mostrará la ventana principal del sistema.
+
+--------------------------------------------------
+
+4. USO DE LA APLICACIÓN
+
+La pantalla principal presenta cuatro módulos principales: Clientes, Mascotas, Citas e Historial Clínico. Cada módulo puede abrirse seleccionando la tarjeta correspondiente.
+
+4.1 Gestión de Clientes
+
+Este módulo permite registrar y administrar la información de los propietarios de las mascotas.
+
+Para registrar un cliente, se deben ingresar el nombre y teléfono, que son campos obligatorios. También pueden registrarse datos adicionales como correo electrónico y dirección. Al guardar la información, el sistema asigna automáticamente un identificador único al cliente.
+
+Los clientes registrados aparecen en una tabla donde pueden ser consultados o eliminados. Al seleccionar un cliente, sus datos se muestran en el formulario correspondiente.
+
+4.2 Gestión de Mascotas
+
+Este módulo permite registrar las mascotas asociadas a cada cliente.
+
+Para crear un registro es necesario seleccionar previamente el propietario y completar la información de la mascota, incluyendo nombre, especie, edad y peso. El sistema genera automáticamente un identificador único para cada mascota registrada.
+
+Las mascotas almacenadas pueden visualizarse en la tabla principal del módulo y eliminarse cuando sea necesario.
+
+4.3 Gestión de Citas
+
+El módulo de citas permite programar consultas veterinarias para las mascotas registradas.
+
+Para agendar una cita se debe ingresar la fecha, la hora, el motivo de la consulta y seleccionar la mascota correspondiente. Una vez guardada, la cita queda registrada con estado "Pendiente".
+
+Posteriormente, el estado de la cita puede modificarse a "Completada" o "Cancelada" según corresponda.
+
+4.4 Historial Clínico
+
+Este módulo almacena la información médica de cada mascota.
+
+Para registrar un historial clínico se debe seleccionar la mascota e ingresar la fecha de atención, el diagnóstico, el tratamiento y las observaciones necesarias. Cada registro queda asociado a la mascota correspondiente y puede consultarse posteriormente mediante las opciones de filtrado disponibles.
+
+--------------------------------------------------
+
+5. ALMACENAMIENTO DE DATOS
+
+Toda la información registrada en el sistema se guarda automáticamente dentro de la carpeta data, ubicada en el mismo directorio de la aplicación.
+
+Los datos se distribuyen en los siguientes archivos:
+
+- clientes.csv: almacena la información de los clientes.
+- mascotas.csv: almacena la información de las mascotas.
+- citas.csv: almacena las citas programadas.
+- historial.csv: almacena los registros clínicos.
+
+La aplicación carga automáticamente esta información cada vez que se inicia y la actualiza después de cada operación realizada por el usuario.
+
+--------------------------------------------------
+
+6. SOLUCIÓN DE PROBLEMAS
+
+Si la aplicación no inicia correctamente, se recomienda verificar que Java esté instalado y configurado adecuadamente.
+
+Si los datos no aparecen al abrir el sistema, se debe comprobar que la carpeta data y sus archivos correspondientes existan en el directorio de la aplicación.
+
+En caso de errores al registrar fechas u horas, se debe revisar que los valores ingresados correspondan al formato solicitado por el sistema.
+
+--------------------------------------------------
+
+7. CONCLUSIÓN
+
+VetCare proporciona una solución sencilla para la administración de una clínica veterinaria, permitiendo gestionar clientes, mascotas, citas e historiales clínicos desde una única aplicación. Gracias a su sistema de almacenamiento automático, la información permanece disponible entre sesiones, facilitando el trabajo diario del personal de la clínica.
+
+--------------------------------------------------
+
+Versión: 1.0
+Fecha de elaboración: Junio de 2026
