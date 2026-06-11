@@ -50,9 +50,11 @@ public class Tema {
         UIManager.put("ScrollBar.thumb",                BORDER);
         UIManager.put("ScrollBar.track",                BG_CARD);
         // Botones de diálogos
-        UIManager.put("Button.background",              ACCENT);
-        UIManager.put("Button.foreground",              TEXT_PRIMARY);
-        UIManager.put("Button.focus",                   ACCENT);
+        UIManager.put("Button.background",  new Color(80, 50, 180));
+        UIManager.put("Button.foreground",  new Color(80, 50, 180));
+        UIManager.put("Button.select",      new Color(60, 30, 150));
+        UIManager.put("Button.focus",       new Color(80, 50, 180));
+        UIManager.put("Button.border",      BorderFactory.createEmptyBorder(6, 16, 6, 16));
     }
 
     // ── BOTÓN ────────────────────────────────────────────────────────────────
